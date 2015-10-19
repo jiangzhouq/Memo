@@ -79,7 +79,7 @@ public class NotePreviewLayout extends LinearLayout {
     private float mLastMotionX;
 
     private float mTouchX;
-    
+    private int mScrollX;
     public  View view;
 
     private boolean mFirstLayout = true;

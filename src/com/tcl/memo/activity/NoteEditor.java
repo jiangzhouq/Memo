@@ -31,6 +31,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
@@ -46,6 +47,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
@@ -201,6 +203,7 @@ public class NoteEditor extends Activity {
 		mNoteView = (NoteView) findViewById(R.id.note_view);
 		mNoteView.setNoteMode(NoteView.NOTE_MODE_PAINT);
 		
+		
 		PaintView paintView = mNoteView.getPaintView();
 		PaintSetting paintSetting = SettingUtils.getPaintSetting(this);
 		paintView.setStrokeColor(paintSetting.mPaintColor);
@@ -236,7 +239,11 @@ public class NoteEditor extends Activity {
 				}
 				mNoteView.setNoteMode(NoteView.NOTE_MODE_INSERT);
 				mNoteView.addText("", SettingUtils.getFontSetting(NoteEditor.this), true);
+				Rect outRect = new Rect();  
+				getWindow().findViewById(Window.ID_ANDROID_CONTENT).getDrawingRect(outRect);  
+				Log.d("qiqi"," "+outRect.width() + " " + outRect.height());
 			}
+			
 		});
 
 		findViewById(R.id.add_image).setOnClickListener(new OnClickListener() {
@@ -475,6 +482,7 @@ public class NoteEditor extends Activity {
 			noteBgTopResId = R.drawable.note_bg_6_top;
 			break;
 		}
+		Log.d("qiqi","++ " + findViewById(R.id.tool_bar).getHeight());
 		findViewById(R.id.tool_bar).setBackgroundResource(noteBgTopResId);
 	}
 

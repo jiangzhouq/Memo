@@ -104,6 +104,7 @@ public class NoteView extends RelativeLayout {
 		mContentLayout.setBackgroundColor(Color.WHITE);
 		
 		setNoteMode(NOTE_MODE_PAINT);
+		Log.d("qiqi"," === " + getResources().getDisplayMetrics().density);
 	}
 
 	private void initViews() {

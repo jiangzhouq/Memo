@@ -463,7 +463,7 @@ OnCloseListener, OnFocusChangeListener, OnItemClickListener, OnItemLongClickList
             }
             mMultiSelectActionBarView.findViewById(R.id.multi_checkbox).setOnClickListener(this);
             mode.setCustomView(mMultiSelectActionBarView);
-            findViewById(com.android.internal.R.id.action_context_bar).setBackgroundResource(R.drawable.note_action_bar_bg);
+//            findViewById(com.android.internal.R.id.action_context_bar).setBackgroundResource(R.drawable.note_action_bar_bg);
             return true; 
 		}
 
